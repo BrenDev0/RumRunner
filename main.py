@@ -1,11 +1,13 @@
 from PySide6.QtWidgets import QApplication   
 import sys 
-from components.file_filter import exe_files
+from ui.Widget import RumRunner
 
 app = QApplication(sys.argv)
 
-exe_files('firefox')
+window = RumRunner()
+window.show()
 
+app.exec()
 
 
 
