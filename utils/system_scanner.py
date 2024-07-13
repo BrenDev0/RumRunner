@@ -4,13 +4,16 @@ from models.database import Database
 def system_scan():
     db = Database()
     exefiles = []
+    print('scanning...')
     for root, dirs, files in os.walk('C:/'):
-        print("scan start")
         for filename in files:
-                exefiles.append({
-                    'file_name': filename,
-                    'file_path': root + "/" + filename
-                }) 
+            if filename.endswith('.exe'):
+                file = [
+                     filename,
+                     root + '/' + filename
+                ]
+                db.insert(file)
+                
     print('scan finished')  
 
-system_scan()             
+             
