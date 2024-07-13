@@ -1,3 +1,5 @@
+from PySide6.QtGui import *
+from PySide6.QtCore import *
 from PySide6.QtWidgets import *
 import os
 from utils.system_scanner import system_scan
@@ -59,6 +61,13 @@ class RumRunner(QWidget):
             row = row + 1
         else:
             pass  
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Return:
+            path = self.table.item(self.table.currentRow(), 2).text()
+            os.startfile(path)
+            
+       
 
    
 
