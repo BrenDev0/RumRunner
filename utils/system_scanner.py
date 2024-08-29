@@ -7,7 +7,7 @@ def system_scan():
     print('scanning...')
     for root, dirs, files in os.walk('C:/'):
         for filename in files:
-            if filename.endswith('.exe'):
+            if filename.endswith('.exe') or filename.endswith('.txt'):
                 file = [
                      filename,
                      root + '/' + filename
